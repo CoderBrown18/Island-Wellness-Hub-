@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Island Wellness Hub</title>
+
+    <link rel="stylesheet" href="../Styles/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <img src="../assets/images/hub1.png" class="top-logo" alt="Island Wellness Hub Logo">
+
+    <h1>Island Wellness Hub</h1>
+    <p class="tagline">Create an Account</p>
+
+</header>
+
+<main>
+
+<section>
+
+<h2>Register</h2>
+
+<form onsubmit="validateRegister(event)">
+
+<label for="name">Full Name</label>
+<input type="text" id="name" required>
+
+<label for="email">Email</label>
+<input type="email" id="email" required>
+
+<label for="password">Password</label>
+<input type="password" id="password" required>
+
+<label for="confirmPassword">Confirm Password</label>
+<input type="password" id="confirmPassword" required>
+
+<button type="submit">Register</button>
+
+</form>
+
+<button onclick="history.back()">← Go Back</button>
+
+</section>
+
+</main>
+
+<footer>
+
+<img src="../assets/images/logo.jpg" class="footer-logo" alt="Logo">
+
+<p><strong>Contact Us</strong></p>
+<p>Email: islandwellness234@gmail.com</p>
+<p>Phone: 876-555-1234</p>
+<p>Location: Kingston, Jamaica</p>
+
+</footer>
+
+<script src="../script/script.js"></script>
+
+</body>
+</html>
