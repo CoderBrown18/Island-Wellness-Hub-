@@ -1,4 +1,3 @@
-did i made a mistake
 // ===============================
 // IA#2 JavaScript - Island Wellness Hub
 // ===============================
