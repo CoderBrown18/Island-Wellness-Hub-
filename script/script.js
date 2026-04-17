@@ -9,10 +9,11 @@ function addToCart(name, price) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let existing = cart.find(item => item.name === name);
+    // Check if item already exists
+    let existingItem = cart.find(item => item.name === name);
 
-    if (existing) {
-        existing.quantity++;
+    if (existingItem) {
+        existingItem.quantity += 1; // increase quantity
     } else {
         cart.push({
             name: name,
@@ -45,7 +46,11 @@ function displayCart() {
 
         let li = document.createElement("li");
 
-        li.textContent = item.name + " - $" + item.price + " x " + item.quantity;
+        let itemTotal = item.price * item.quantity;
+
+        li.innerHTML = `
+            ${item.name} - $${item.price} x ${item.quantity} = $${itemTotal}
+        `;
 
         let removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
@@ -57,14 +62,13 @@ function displayCart() {
         li.appendChild(removeBtn);
         cartList.appendChild(li);
 
-        subtotal += item.price * item.quantity;
-
+        subtotal += itemTotal;
     });
 
     let tax = subtotal * 0.15;
     let total = subtotal + tax;
 
-    document.getElementById("subtotal").textContent = subtotal.toFixed(2);
+    document.getElementById("subtotal").textContent = subtotal;
     document.getElementById("tax").textContent = tax.toFixed(2);
     document.getElementById("total").textContent = total.toFixed(2);
 }
@@ -94,12 +98,16 @@ function updateCartCount() {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let count = cart.reduce((total, item) => total + item.quantity, 0);
+    let totalItems = 0;
+
+    cart.forEach(item => {
+        totalItems += item.quantity;
+    });
 
     let cartCount = document.getElementById("cartCount");
 
     if (cartCount) {
-        cartCount.textContent = count;
+        cartCount.textContent = totalItems;
     }
 }
 
