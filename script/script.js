@@ -284,3 +284,41 @@ function registerUser(event) {
     // Redirect to login
     window.location.href = "login.html";
 }
+
+// IA#2 GROUP PROJECT - Login System
+
+let loginAttempts = 0;
+
+function loginUser(event) {
+    event.preventDefault();
+
+    let trn = document.getElementById("loginTRN").value.trim();
+    let password = document.getElementById("loginPassword").value;
+
+    let users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+    let foundUser = users.find(user => user.trn === trn && user.password === password);
+
+    if (foundUser) {
+
+        alert("Login successful!");
+
+        // Save current user session
+        localStorage.setItem("currentUser", JSON.stringify(foundUser));
+
+        // Redirect to products page
+        window.location.href = "products.html";
+
+    } else {
+
+        loginAttempts++;
+
+        document.getElementById("errorMsg").textContent =
+            "Invalid TRN or Password (" + loginAttempts + "/3)";
+
+        if (loginAttempts >= 3) {
+            alert("Account locked. Too many failed attempts.");
+            window.location.href = "error.html"; // optional page
+        }
+    }
+}
