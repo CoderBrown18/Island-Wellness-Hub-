@@ -26,24 +26,45 @@
 
 <h2>Register</h2>
 
-<form onsubmit="validateRegister(event)">
+<form onsubmit="registerUser(event)">
+    <label>First Name</label>
+    <input type="text" id="firstName" required>
+    
+    <label>Last Name</label>
+    <input type="text" id="lastName" required>
+    
+    <label>Date of Birth</label>
+    <input type="date" id="dob" required>
+    
+    <label>Gender</label>
+    <select id="gender" required>
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+    </select>
+    
+    <label>Phone</label>
+    <input type="text" id="phone" required>
+    
+    <label>Email</label>
+    <input type="email" id="email" required>
+    
+    <label>TRN (000-000-000)</label>
+    <input type="text" id="trn" required>
+    
+    <label>Password</label>
+    <input type="password" id="password" required>
+    
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword" required>
 
-<label for="name">Full Name</label>
-<input type="text" id="name" required>
-
-<label for="email">Email</label>
-<input type="email" id="email" required>
-
-<label for="password">Password</label>
-<input type="password" id="password" required>
-
-<label for="confirmPassword">Confirm Password</label>
-<input type="password" id="confirmPassword" required>
+<br><br>
 
 <button type="submit">Register</button>
+<button type="reset">Cancel</button>
 
 </form>
-
 <button onclick="history.back()">← Go Back</button>
 
 </section>
