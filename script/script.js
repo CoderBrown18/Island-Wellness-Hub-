@@ -204,3 +204,83 @@ window.onload = function () {
     displayCart();
     updateCartCount();
 };
+
+// IA#2 GROUP PROJECT - Registration Function
+
+function registerUser(event) {
+    event.preventDefault();
+
+    // Get values
+    let firstName = document.getElementById("firstName").value.trim();
+    let lastName = document.getElementById("lastName").value.trim();
+    let dob = document.getElementById("dob").value;
+    let gender = document.getElementById("gender").value;
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let trn = document.getElementById("trn").value.trim();
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Validate password length
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters");
+        return;
+    }
+
+    // Confirm password
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return;
+    }
+
+    // Validate TRN format (000-000-000)
+    let trnPattern = /^\d{3}-\d{3}-\d{3}$/;
+    if (!trnPattern.test(trn)) {
+        alert("TRN must be in format 000-000-000");
+        return;
+    }
+
+    // Calculate age
+    let birthDate = new Date(dob);
+    let today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    if (age < 18) {
+        alert("You must be at least 18 years old");
+        return;
+    }
+
+    // Get existing users
+    let users = JSON.parse(localStorage.getItem("RegistrationData")) || [];
+
+    // Check if TRN already exists
+    let exists = users.some(user => user.trn === trn);
+    if (exists) {
+        alert("TRN already registered");
+        return;
+    }
+
+    // Create user object
+    let newUser = {
+        firstName,
+        lastName,
+        dob,
+        gender,
+        phone,
+        email,
+        trn,
+        password,
+        dateRegistered: new Date().toLocaleDateString(),
+        cart: [],
+        invoices: []
+    };
+
+    // Save user
+    users.push(newUser);
+    localStorage.setItem("RegistrationData", JSON.stringify(users));
+
+    alert("Registration successful!");
+
+    // Redirect to login
+    window.location.href = "login.html";
+}
