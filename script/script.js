@@ -5,6 +5,8 @@
 console.log("Website Loaded");
 
 // ---------- ADD TO CART ----------
+// IA#2 GROUP PROJECT - Cart Upgrade
+
 function addToCart(name, price) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -22,7 +24,9 @@ function addToCart(name, price) {
         });
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (!localStorage.getItem("AllProducts")) {
+    localStorage.setItem("AllProducts", JSON.stringify(products));
+}
 
     alert(name + " added to cart");
 
@@ -31,13 +35,12 @@ function addToCart(name, price) {
 
 // ---------- DISPLAY CART ----------
 function displayCart() {
-
+    
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
+    
     let cartList = document.getElementById("cartItems");
-
+    
     if (!cartList) return;
-
     cartList.innerHTML = "";
 
     let subtotal = 0;
@@ -71,8 +74,7 @@ function displayCart() {
     document.getElementById("subtotal").textContent = subtotal;
     document.getElementById("tax").textContent = tax.toFixed(2);
     document.getElementById("total").textContent = total.toFixed(2);
-}
-
+}      
 // ---------- REMOVE ITEM ----------
 function removeItem(index) {
 
@@ -149,46 +151,6 @@ function placeOrder(event) {
 
     window.location.href = "index.html";
 }
-
-// ---------- LOGIN ----------
-function validateLogin(event) {
-
-    event.preventDefault();
-
-    let email = document.getElementById("loginEmail").value;
-    let password = document.getElementById("loginPassword").value;
-
-    if (email === "" || password === "") {
-        alert("Please fill in all fields!");
-        return;
-    }
-
-    alert("Login successful!");
-    window.location.href = "index.html";
-}
-
-// ---------- REGISTER ----------
-function validateRegister(event) {
-
-    event.preventDefault();
-
-    let password = document.getElementById("password").value;
-    let confirm = document.getElementById("confirmPassword").value;
-
-    if (password.length < 6) {
-        alert("Password must be at least 6 characters!");
-        return;
-    }
-
-    if (password !== confirm) {
-        alert("Passwords do not match!");
-        return;
-    }
-
-    alert("Registration successful!");
-    window.location.href = "login.html";
-}
-
 // ---------- SCROLL BUTTON ----------
 window.onscroll = function () {
 
@@ -213,8 +175,6 @@ window.onload = function() {
     displayCart();
     updateCartCount();
 };
-
-// IA#2 GROUP PROJECT - Registration Function
 
 function registerUser(event) {
     event.preventDefault();
@@ -327,12 +287,10 @@ function loginUser(event) {
 
         if (loginAttempts >= 3) {
             alert("Account locked. Too many failed attempts.");
-            window.location.href = "error.html"; // optional page
+            alert("Too many attempts. Try again later.");
         }
     }
 }
-// IA#2 GROUP PROJECT - Product Array
-
 const products = [
     {
         name: "Yoga Class",
