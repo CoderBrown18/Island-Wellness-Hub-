@@ -6,32 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Island Wellness Hub</title>
 
-    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
 
-    <img src="assets/images/hub1.png" class="top-logo" alt="Island Wellness Hub Logo">
+    <img src="assets/images/hub1.png" class="top-logo frame" alt="Island Wellness Hub Logo">
 
     <h1>Island Wellness Hub</h1>
     <p class="tagline">Wellness at the Heart of the Island</p>
 
 </header>
-
-<!-- NAVIGATION -->
+    
 <nav>
 
     <a href="index.html">Home</a>
     <a href="products.html">Products</a>
     <a href="cart.html">Cart (<span id="cartCount">0</span>)</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
     <a href="about.html">About</a>
 
 </nav>
 
-<!-- MAIN -->
 <main>
 
     <section>
@@ -39,62 +38,16 @@
         <h2>Our Wellness Services</h2>
         <p>Select a service and add it to your cart.</p>
 
-        <!-- PRODUCT CONTAINER -->
-      <div class="products">
-
-    <!-- PRODUCT 1 -->
-    <div class="product">
-        <img src="assets/images/yoga.png" alt="Yoga Class">
-        <h3>🧘 Yoga Class</h3>
-        <h3>Yoga Class</h3>
-        <p>Relaxing guided yoga sessions to improve flexibility and reduce stress.</p>
-        <p class="price">$2500</p>
-        <button onclick="addToCart('Yoga Class', 2500)">Add to Cart</button>
-
-</div>
-
-            <!-- PRODUCT 2 -->
-            <div class="product">
-                 <img src="assets/images/training.png" alt="Personal training">
-                 <h3>💪 Personal Training</h3>
-                <h3>Personal Training</h3>
-                <p>One-on-one training sessions designed to meet your fitness goals.</p>
-                <p class="price">$3500</p>
-                <button onclick="addToCart('Personal Training', 3500)">Add to Cart</button>
-            </div>
-
-            <!-- PRODUCT 3 -->
-            <div class="product">
-                 <img src="assets/images/massage.png" alt="Massage Therapy">
-                 <h3>💆 Massage Therapy</h3>
-                <h3>Massage Therapy</h3>
-                <p>Professional massage therapy to relieve muscle tension.</p>
-                <p class="price">$4000</p>
-                <button onclick="addToCart('Massage Therapy', 4000)">Add to Cart</button>
-            </div>
-
-            <!-- PRODUCT 4 -->
-            <div class="product">
-                 <img src="assets/images/nutrition.png" alt="Nutrition Consultation">
-                 <h3>🥗 Nutrition Consultation</h3>
-                <h3>Nutrition Consultation</h3>
-                <p>Get expert advice on healthy eating and lifestyle habits.</p>
-                <p class="price">$3000</p>
-                <button onclick="addToCart('Nutrition Consultation', 3000)">Add to Cart</button>
-            </div>
-
-        </div>
+        <div class="products" id="productList"></div>
 
     </section>
 
 </main>
 
-<!-- BACK BUTTON -->
 <div style="text-align:center;">
     <button onclick="history.back()">← Go Back</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
 
     <img src="assets/images/logo.jpg" class="footer-logo" alt="Company Logo">
@@ -105,8 +58,7 @@
     <p>Location: Kingston, Jamaica</p>
 
 </footer>
-
-<!-- JS -->
+    
 <script src="script/script.js"></script>
 
 </body>
