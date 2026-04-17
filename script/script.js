@@ -200,7 +200,8 @@ function scrollToTop() {
 }
 
 // ---------- ON LOAD ----------
-window.onload = function () {
+window.onload = function() {
+    displayProducts();
     displayCart();
     updateCartCount();
 };
@@ -321,4 +322,70 @@ function loginUser(event) {
             window.location.href = "error.html"; // optional page
         }
     }
+}
+// IA#2 GROUP PROJECT - Product Array
+
+const products = [
+    {
+        name: "Yoga Class",
+        price: 2500,
+        description: "Relaxing yoga sessions to reduce stress.",
+        image: "assets/images/yoga.jpg"
+    },
+    {
+        name: "Personal Training",
+        price: 3500,
+        description: "One-on-one fitness training.",
+        image: "assets/images/training.jpg"
+    },
+    {
+        name: "Massage Therapy",
+        price: 4000,
+        description: "Relieve muscle tension and relax.",
+        image: "assets/images/massage.jpg"
+    },
+    {
+        name: "Nutrition Consultation",
+        price: 3000,
+        description: "Healthy eating and lifestyle advice.",
+        image: "assets/images/nutrition.jpg"
+    }
+];
+// Save products to localStorage
+localStorage.setItem("AllProducts", JSON.stringify(products));
+
+// Display Products Dynamically
+
+function displayProducts() {
+
+    let productContainer = document.getElementById("productList");
+
+    if (!productContainer) return;
+
+    let products = JSON.parse(localStorage.getItem("AllProducts")) || [];
+
+    productContainer.innerHTML = "";
+
+    products.forEach((product, index) => {
+
+        let productHTML = `
+            <div class="product">
+
+                <img src="${product.image}" alt="${product.name}">
+
+                <h3>${product.name}</h3>
+
+                <p>${product.description}</p>
+
+                <p class="price">$${product.price}</p>
+
+                <button onclick="addToCart('${product.name}', ${product.price})">
+                    Add to Cart
+                </button>
+
+            </div>
+        `;
+
+        productContainer.innerHTML += productHTML;
+    });
 }
