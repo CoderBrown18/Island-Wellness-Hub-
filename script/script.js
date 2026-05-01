@@ -296,25 +296,25 @@ const products = [
         name: "Yoga Class",
         price: 2500,
         description: "Relaxing yoga sessions to reduce stress.",
-        image: "assets/images/yoga.jpg"
+        image: "assets/images/yoga.png"
     },
     {
         name: "Personal Training",
         price: 3500,
         description: "One-on-one fitness training.",
-        image: "assets/images/training.jpg"
+         image: "assets/images/training.png"
     },
     {
         name: "Massage Therapy",
         price: 4000,
         description: "Relieve muscle tension and relax.",
-        image: "assets/images/massage.jpg"
+        image: "assets/images/massage.png"
     },
     {
         name: "Nutrition Consultation",
         price: 3000,
         description: "Healthy eating and lifestyle advice.",
-        image: "assets/images/nutrition.jpg"
+        image: "assets/images/nutrition.png"
     }
 ];
 // Save products to localStorage
