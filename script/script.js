@@ -302,6 +302,8 @@ function loginUser(event) {
         // Save current user session
         localStorage.setItem("currentUser", JSON.stringify(foundUser));
 
+        document.getElementById("loginForm").reset();
+        
         // Redirect to products page
         window.location.href = "products.html";
 
