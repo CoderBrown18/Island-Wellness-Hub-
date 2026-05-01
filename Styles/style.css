@@ -285,3 +285,30 @@ footer p,
         padding: 60px 15px;
     }
 }
+
+/* Receipt Styling */
+#receiptBox {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Print mode (PDF clean look) */
+@media print {
+
+    body {
+        background: white;
+    }
+
+    nav, button {
+        display: none;
+    }
+
+    #receiptBox {
+        box-shadow: none;
+        border: none;
+    }
+}
