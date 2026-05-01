@@ -166,7 +166,7 @@ function placeOrder(event) {
 
     updateCartCount();
 
-    window.location.href = "invoice.html";
+    window.location.href = "login.html";
 }
 
 // ---------- SCROLL BUTTON ----------
@@ -189,10 +189,15 @@ function scrollToTop() {
 
 // ---------- ON LOAD ----------
 window.onload = function () {
+
     displayProducts();
     displayCart();
     updateCartCount();
-    displayInvoice(); 
+
+    // ONLY run invoice on receipt page
+    if (document.getElementById("invoiceTable")) {
+        displayInvoice();
+    }
 };
 
 function registerUser(event) {
