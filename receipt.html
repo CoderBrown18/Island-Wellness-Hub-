@@ -10,33 +10,62 @@
 
 <body>
 
-<header>
-    <h1>Payment Receipt</h1>
-    <p>Island Wellness Hub</p>
-</header>
-
 <main>
 
 <section id="receiptBox">
 
-    <h2>Receipt Details</h2>
+    <!-- LOGO -->
+    <div class="receipt-header">
+        <img src="assets/images/logo.jpg" class="receipt-logo" alt="Company Logo">
+        <h1>Island Wellness Hub</h1>
+        <p>Wellness at the Heart of the Island</p>
+    </div>
+
+    <hr>
+
+    <!-- CUSTOMER INFO -->
+    <h2>Invoice Receipt</h2>
 
     <p><strong>Invoice #:</strong> <span id="invoiceNumber"></span></p>
     <p><strong>Date:</strong> <span id="invoiceDate"></span></p>
     <p><strong>Name:</strong> <span id="customerName"></span></p>
 
+    <!-- TABLE -->
     <h3>Items Purchased</h3>
-    <ul id="invoiceItems"></ul>
 
-    <p>Subtotal: $<span id="invoiceSubtotal"></span></p>
-    <p>Tax (15%): $<span id="invoiceTax"></span></p>
-    <p><strong>Total: $<span id="invoiceTotal"></span></strong></p>
+    <table id="invoiceTable">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+            </tr>
+        </thead>
 
-    <br>
+        <tbody id="invoiceItems"></tbody>
+    </table>
 
-    <!-- ACTION BUTTONS -->
-    <button onclick="printReceipt()">🖨️ Download / Print</button>
-    <button onclick="goHome()">🏠 Back to Home</button>
+    <!-- TOTALS -->
+    <div class="totals">
+        <p>Subtotal: $<span id="invoiceSubtotal"></span></p>
+        <p>Tax (15%): $<span id="invoiceTax"></span></p>
+        <p><strong>Total: $<span id="invoiceTotal"></span></strong></p>
+    </div>
+
+    <hr>
+
+    <!-- THANK YOU -->
+    <p class="thank-you">
+        Thank you for choosing Island Wellness Hub 💚<br>
+        We appreciate your support and look forward to serving you again!
+    </p>
+
+    <!-- BUTTONS -->
+    <div class="receipt-actions">
+        <button onclick="printReceipt()">🖨️ Download / Print</button>
+        <button onclick="goHome()">🏠 Back to Home</button>
+    </div>
 
 </section>
 
