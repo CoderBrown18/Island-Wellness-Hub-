@@ -213,7 +213,7 @@ function registerUser(event) {
     let trn = document.getElementById("trn").value.trim();
     let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirmPassword").value;
-
+    
     // Validate password length
     if (password.length < 8) {
         alert("Password must be at least 8 characters");
@@ -273,7 +273,10 @@ function registerUser(event) {
     localStorage.setItem("RegistrationData", JSON.stringify(users));
 
     alert("Registration successful!");
-
+    
+    // Clear form
+document.getElementById("registerForm").reset();
+    
     // Redirect to login
     window.location.href = "receipt.html";
 }
