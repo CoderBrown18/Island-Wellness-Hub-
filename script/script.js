@@ -374,24 +374,36 @@ function displayProducts() {
         productContainer.innerHTML += productHTML;
     });
 }
+// ---------- invoice functions ----------
 function displayInvoice() {
 
     let invoices = JSON.parse(localStorage.getItem("Invoices")) || [];
 
     if (invoices.length === 0) return;
 
-    let invoice = invoices[invoices.length - 1]; // latest invoice
+    let invoice = invoices[invoices.length - 1];
 
     document.getElementById("invoiceNumber").textContent = invoice.invoiceNumber;
     document.getElementById("invoiceDate").textContent = invoice.date;
     document.getElementById("customerName").textContent = invoice.customerName;
 
-    let list = document.getElementById("invoiceItems");
+    let table = document.getElementById("invoiceItems");
+    table.innerHTML = "";
 
     invoice.items.forEach(item => {
-        let li = document.createElement("li");
-        li.textContent = `${item.name} x ${item.quantity} = $${item.price * item.quantity}`;
-        list.appendChild(li);
+
+        let row = document.createElement("tr");
+
+        let itemTotal = item.price * item.quantity;
+
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${item.price}</td>
+            <td>${item.quantity}</td>
+            <td>$${itemTotal}</td>
+        `;
+
+        table.appendChild(row);
     });
 
     document.getElementById("invoiceSubtotal").textContent = invoice.subtotal;
