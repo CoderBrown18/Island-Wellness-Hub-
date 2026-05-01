@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt - Island Wellness Hub</title>
+
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Payment Receipt</h1>
+    <p>Island Wellness Hub</p>
+</header>
+
+<main>
+
+<section id="receiptBox">
+
+    <h2>Receipt Details</h2>
+
+    <p><strong>Invoice #:</strong> <span id="invoiceNumber"></span></p>
+    <p><strong>Date:</strong> <span id="invoiceDate"></span></p>
+    <p><strong>Name:</strong> <span id="customerName"></span></p>
+
+    <h3>Items Purchased</h3>
+    <ul id="invoiceItems"></ul>
+
+    <p>Subtotal: $<span id="invoiceSubtotal"></span></p>
+    <p>Tax (15%): $<span id="invoiceTax"></span></p>
+    <p><strong>Total: $<span id="invoiceTotal"></span></strong></p>
+
+    <br>
+
+    <!-- ACTION BUTTONS -->
+    <button onclick="printReceipt()">🖨️ Download / Print</button>
+    <button onclick="goHome()">🏠 Back to Home</button>
+
+</section>
+
+</main>
+
+<script src="script/script.js"></script>
+
+</body>
+</html>
