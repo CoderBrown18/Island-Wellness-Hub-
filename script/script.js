@@ -194,6 +194,12 @@ window.onload = function () {
     displayCart();
     updateCartCount();
 
+    let regForm = document.getElementById("registerForm");
+if (regForm) regForm.reset();
+
+let loginForm = document.getElementById("loginForm");
+if (loginForm) loginForm.reset();
+
     // ONLY run invoice on receipt page
     if (document.getElementById("invoiceTable")) {
         displayInvoice();
