@@ -15,7 +15,7 @@ function addToCart(name, price) {
     let existingItem = cart.find(item => item.name === name);
 
     if (existingItem) {
-        existingItem.quantity += 1; // increase quantity
+        existingItem.quantity += 1;
     } else {
         cart.push({
             name: name,
@@ -23,10 +23,7 @@ function addToCart(name, price) {
             quantity: 1
         });
     }
-
-    if (!localStorage.getItem("AllProducts")) {
-    localStorage.setItem("AllProducts", JSON.stringify(products));
-}
+    localStorage.setItem("cart", JSON.stringify(cart));
 
     alert(name + " added to cart");
 
@@ -166,7 +163,7 @@ function placeOrder(event) {
 
     updateCartCount();
 
-    window.location.href = "login.html";
+    window.location.href = "receipt.html";
 }
 
 // ---------- SCROLL BUTTON ----------
@@ -284,7 +281,7 @@ function registerUser(event) {
 document.getElementById("registerForm").reset();
     
     // Redirect to login
-    window.location.href = "receipt.html";
+    window.location.href = "login.html";
 }
 
 // IA#2 GROUP PROJECT - Login System
