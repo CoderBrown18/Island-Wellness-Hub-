@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Invoice Receipt</h1>
+</header>
+
+<main>
+
+<section>
+
+    <h2>Order Details</h2>
+
+    <p><strong>Invoice #:</strong> <span id="invoiceNumber"></span></p>
+    <p><strong>Date:</strong> <span id="invoiceDate"></span></p>
+    <p><strong>Name:</strong> <span id="customerName"></span></p>
+
+    <h3>Items</h3>
+    <ul id="invoiceItems"></ul>
+
+    <p>Subtotal: $<span id="invoiceSubtotal"></span></p>
+    <p>Tax: $<span id="invoiceTax"></span></p>
+    <p><strong>Total: $<span id="invoiceTotal"></span></strong></p>
+
+</section>
+
+</main>
+
+<script src="script/script.js"></script>
+
+</body>
+</html>
