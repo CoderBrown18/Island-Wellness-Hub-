@@ -134,23 +134,41 @@ function placeOrder(event) {
         return;
     }
 
-    let total = 0;
+    let subtotal = 0;
 
     cart.forEach(item => {
-        total += item.price * item.quantity;
+        subtotal += item.price * item.quantity;
     });
 
-    let tax = total * 0.15;
-    let finalTotal = total + tax;
+    let tax = subtotal * 0.15;
+    let total = subtotal + tax;
 
-    alert("Order placed!\nTotal: $" + finalTotal.toFixed(2));
+    // 🧾 CREATE INVOICE OBJECT
+    let invoice = {
+        customerName: name,
+        email: email,
+        address: address,
+        items: cart,
+        subtotal: subtotal,
+        tax: tax,
+        total: total,
+        date: new Date().toLocaleString(),
+        invoiceNumber: "INV" + Math.floor(Math.random() * 100000)
+    };
+    
+    let invoices = JSON.parse(localStorage.getItem("Invoices")) || [];
+    invoices.push(invoice);
+    localStorage.setItem("Invoices", JSON.stringify(invoices));
+
+    alert("Order placed!\nInvoice #: " + invoice.invoiceNumber);
 
     localStorage.removeItem("cart");
 
     updateCartCount();
 
-    window.location.href = "index.html";
+    window.location.href = "invoice.html";
 }
+
 // ---------- SCROLL BUTTON ----------
 window.onscroll = function () {
 
