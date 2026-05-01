@@ -188,10 +188,11 @@ function scrollToTop() {
 }
 
 // ---------- ON LOAD ----------
-window.onload = function() {
+window.onload = function () {
     displayProducts();
     displayCart();
     updateCartCount();
+    displayInvoice(); 
 };
 
 function registerUser(event) {
@@ -372,4 +373,28 @@ function displayProducts() {
 
         productContainer.innerHTML += productHTML;
     });
+}
+function displayInvoice() {
+
+    let invoices = JSON.parse(localStorage.getItem("Invoices")) || [];
+
+    if (invoices.length === 0) return;
+
+    let invoice = invoices[invoices.length - 1]; // latest invoice
+
+    document.getElementById("invoiceNumber").textContent = invoice.invoiceNumber;
+    document.getElementById("invoiceDate").textContent = invoice.date;
+    document.getElementById("customerName").textContent = invoice.customerName;
+
+    let list = document.getElementById("invoiceItems");
+
+    invoice.items.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = `${item.name} x ${item.quantity} = $${item.price * item.quantity}`;
+        list.appendChild(li);
+    });
+
+    document.getElementById("invoiceSubtotal").textContent = invoice.subtotal;
+    document.getElementById("invoiceTax").textContent = invoice.tax.toFixed(2);
+    document.getElementById("invoiceTotal").textContent = invoice.total.toFixed(2);
 }
