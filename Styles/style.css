@@ -288,7 +288,7 @@ footer p,
 
 /* Receipt Styling */
 #receiptBox {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     background: white;
     padding: 30px;
@@ -296,14 +296,62 @@ footer p,
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-/* Print mode (PDF clean look) */
+/* HEADER */
+.receipt-header {
+    text-align: center;
+}
+
+.receipt-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+/* TABLE */
+#invoiceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#invoiceTable th,
+#invoiceTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+#invoiceTable th {
+    background: #27ae60;
+    color: white;
+}
+
+/* TOTALS */
+.totals {
+    margin-top: 15px;
+    text-align: right;
+}
+
+/* THANK YOU */
+.thank-you {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* BUTTONS */
+.receipt-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* PRINT MODE */
 @media print {
 
     body {
         background: white;
     }
 
-    nav, button {
+    button {
         display: none;
     }
 
