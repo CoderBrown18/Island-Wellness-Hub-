@@ -270,7 +270,7 @@ function registerUser(event) {
     alert("Registration successful!");
 
     // Redirect to login
-    window.location.href = "login.html";
+    window.location.href = "receipt.html";
 }
 
 // IA#2 GROUP PROJECT - Login System
@@ -397,4 +397,11 @@ function displayInvoice() {
     document.getElementById("invoiceSubtotal").textContent = invoice.subtotal;
     document.getElementById("invoiceTax").textContent = invoice.tax.toFixed(2);
     document.getElementById("invoiceTotal").textContent = invoice.total.toFixed(2);
+}
+
+function printReceipt() {
+    window.print();
+}
+function goHome() {
+    window.location.href = "index.html";
 }
